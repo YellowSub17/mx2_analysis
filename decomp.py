@@ -7,39 +7,35 @@ import matplotlib.pyplot as plt
 
 
 fname = sys.argv[1]
-
 if fname[-3:]=='.h5':
-    fname = fname[-3:]
+    fname = fname[:-3]
+
+
+
+print('decomp.py: opening mask')
+with h5py.File(f'/media/pat/datadrive/mx2tape/mask.h5', 'r') as h5file_mask:
+    mask = h5file_mask['entry/data/data'][:]
+
+
+
+print('decomp.py: opening data')
+with h5py.File(f'{fname}.h5','r') as h5file_data:
+    d = h5file_data['/entry/data/data'][:]
 
 
 
 
-
-h5file = h5py.File(f'{fname}.h5','r')
-d = h5file['entry/data/data'][:, :, :]
-h5file.close()
-
-
-h5file_mask = h5py.File(f'/media/pat/datadrive/mx2tape/mask.h5', 'r')
-mask = h5file_mask['entry/data/data'][:]
-h5file_mask.close()
-
-
-
-# d_masked = np.zeros(d.shape)
-
+print('decomp.py: masking data')
 for i, frame in enumerate(d):
-    print(i)
+    print(i, end='\r')
     d[i] = mask*frame
 
 
 
 
+print('decomp.py: saving masked data')
+with h5py.File(f'{fname}_decomp.h5','w') as h5file_decomp:
+    h5file_decomp['entry/data/data'] = d
 
-h5file_decomp = h5py.File(f'{fname}_decomp.h5','w')
-h5file_decomp['entry/data/data'] = d
-h5file_decomp.close()
-
-plt.show()
 
 

@@ -27,8 +27,8 @@ data = /entry/data/data
 
 
 ; Uncomment these lines if you have a separate bad pixel map (recommended!)
-mask_file = /gpfs/cfel/user/atolstik/eiger_test/mask.h5
-mask = /data/data
+mask_file = /media/pat/datadrive/mx2tape/mask.h5
+mask = /entry/data/data
 mask_good = 0x1
 mask_bad = 0x0
 

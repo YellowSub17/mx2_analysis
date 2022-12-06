@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 
 
+
 h5file = h5py.File('/media/pat/datadrive/mx2tape/lyso_control1_run87/lyso_control1_0087_master.h5', 'r')
 d = h5file['/entry/instrument/detector/detectorSpecific/pixel_mask'][:]
 
@@ -23,6 +24,9 @@ d[np.where(d>0)] = 2**10
 d[np.where(d==0)] = 1
 
 d[np.where(d==2**10)] = 0
+
+
+
 
 
 

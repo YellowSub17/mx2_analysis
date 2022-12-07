@@ -9,8 +9,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-DATAFILE = '/media/pat/datadrive/mx2tape/h5s/lyso_control1_0087_data_000170.h5'
-MASKFILE = '/home/pat/Documents/cloudstor/phd/python_projects/mx2_analysis/mask.h5'
+# DATAFILE = '/media/pat/datadrive/mx2tape/h5s/lyso_control1_0087_data_000170.h5'
+# MASKFILE = '/home/pat/Documents/cloudstor/phd/python_projects/mx2_analysis/mask.h5'
+DATAFILE = '/beegfs/desy/user/patricka/mx2/data/lyso_jinxed_alessa_1_0092_data_000001.h5'
+MASKFILE = '/beegfs/desy/user/patricka/mx2/crystfel_calc/mask.h5'
 
 h5file_data = h5py.File(DATAFILE, 'r')
 NFRAMES, EIGER_NX, EIGER_NY = h5file_data['entry/data/data'].shape
@@ -64,7 +66,6 @@ h5file.close()
 
 
 
-plt.show()
 
 
 

@@ -7,7 +7,7 @@ EMAIL='s3826109@student.rmit.edu.au'
 DATADIR='/data/mx/19754a/frames/riboldia/d'
 SAVEDIR='/beegfs/desy/user/patricka/mx2/data'
 
-FILENAME='*'
+FILENAME='lsyo_jinxed_alessa_1*'
 
 echo dl_data.sh: downloading data
 

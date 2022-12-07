@@ -3,7 +3,7 @@
 
 ; Camera length (in m) and photon energy (eV)
 
-clen = 0.2
+clen = 0.27
 
 photon_energy = 13000
 
@@ -20,6 +20,10 @@ data = /entry/data/data
 
 
 
+; Uncomment these lines if you have a separate bad pixel map (recommended!)
+
+
+
 rigid_group_d0 = panel0
 rigid_group_collection_det = d0
 
@@ -30,8 +34,12 @@ panel0/min_fs = 0
 panel0/min_ss = 0
 panel0/max_fs = 4149
 panel0/max_ss = 4370
-panel0/corner_x = -2130.346392
-panel0/corner_y = -2184.369105
+
+panel0/corner_x = -2087.46
+panel0/corner_y = -2230.03
+;panel0/corner_x = -2130.346392
+;panel0/corner_y = -2184.369105
+
 panel0/fs = +1.000000x +0.000000y 
 panel0/ss = +0.000000x +1.000000y
 panel0/coffset = 0

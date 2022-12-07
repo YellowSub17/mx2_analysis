@@ -21,7 +21,11 @@ data = /entry/data/data
 
 
 ; Uncomment these lines if you have a separate bad pixel map (recommended!)
-mask_file = 
+mask_file = mask.h5
+mask = /entry/data/data
+mask_good = 0
+mask_bad = 1
+
 
 
 

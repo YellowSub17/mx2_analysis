@@ -21,6 +21,7 @@ data = /entry/data/data
 
 
 ; Uncomment these lines if you have a separate bad pixel map (recommended!)
+mask_file = 
 
 
 

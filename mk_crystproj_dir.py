@@ -7,6 +7,7 @@ import glob
 
 import sys
 import shutil
+import h5py
 
 
 
@@ -34,18 +35,21 @@ shutil.copy('./mx2eiger.geom', f'{CRYSTFELDIR}/{RUNID}/mx2eiger.geom93l.pdb')
 
 
 
-glob_term = f'{DATADIR}/*_{RUNID}_data*'
-lst_files = glob.glob(glob_term)
+glob_term = f'{DATADIR}/*_{RUNID}_data*.h5'
+h5_data_files = glob.glob(glob_term)
 
-print(f'##Found {len(lst_files)} data h5s in {glob_term}')
-
-
+print(f'##Found {len(h5_data_files)} data h5s in {glob_term}')
 
 
-for lst_file in lst_files:
-    print(f'#writing {lst_file} to {RUNID}files.lst')
+
+
+for h5_data_file in h5_data_files:
+    print(f'#writing {h5_data_file} to {RUNID}files.lst')
+
+    with h5py.File(h5_data_file, 'r') as f:
+        n_frames, _, _ = f['/entry/data/data'].shape
     for frame_num in range(200):
-        lst_line = f'{h5file} //{frame_num}'
+        lst_line = f'{lst_file} //{frame_num}'
         cmd = f'echo {lst_line} >> {CRYSTFELDIR}/{RUNID}/{RUNID}files.lst'
         os.system(cmd)
 

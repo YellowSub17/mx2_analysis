@@ -24,7 +24,12 @@ os.mkdir(f'{CRYSTFELDIR}/{RUNID}')
 
 for h5file in h5files:
     for frame_num in range(200):
-        print(f'{h5file} //{frame_num}')
+        lst_line = f'{h5file} //{frame_num}'
+        cmd = f'echo {lst_line} >> {CRYSTFELDIR}/{RUNID}/run{RUNID}files.lst'
+        os.sys(cmd)
+
+
+
 
 
 

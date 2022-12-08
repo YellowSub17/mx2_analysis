@@ -1,4 +1,5 @@
-#!/bin/bash
+
+import os
 
 
 EMAIL='s3826109@student.rmit.edu.au'
@@ -9,10 +10,7 @@ SAVEDIR='/beegfs/desy/user/patricka/mx2/data'
 
 FILENAME='lyso_jinxed_alessa_2_2mm*.h5'
 
-echo dl_data.sh: downloading data
+cmd = f'echo rsync -rtzP {EMAIL}@sftp.synchrotron.org.au:{DATADIR}/{FILENAME} {SAVEDIR}'
 
 
-rsync -rtzP $EMAIL@sftp.synchrotron.org.au:$DATADIR/$FILENAME $SAVEDIR
-
-
-
+os.system(cmd)

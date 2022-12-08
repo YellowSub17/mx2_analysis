@@ -42,16 +42,16 @@ print(f'##Found {len(h5_data_files)} data h5s in {glob_term}')
 
 
 
+lst_file = open(f'{CRYSTFELDIR}/{RUNID}/{RUNID}files.lst', 'w')
 
 for h5_data_file in h5_data_files:
     print(f'#writing {h5_data_file} to {RUNID}files.lst')
 
     with h5py.File(h5_data_file, 'r') as f:
         n_frames, _, _ = f['/entry/data/data'].shape
+
     for frame_num in range(200):
-        lst_line = f'{lst_file} //{frame_num}'
-        cmd = f'echo {lst_line} >> {CRYSTFELDIR}/{RUNID}/{RUNID}files.lst'
-        os.system(cmd)
+        lst_file.write(f'{h5_data_file} //{frame_num}\n')
 
 
 

@@ -5,24 +5,30 @@ import os
 
 import glob
 
+import sys
+
 
 
 
 DATADIR= '/beegfs/desy/user/patricka/mx2/data'
-CRYSTFELFIR= '/beegfs/desy/user/patricka/mx2/crystfel_calc'
-RUNIDS = ['0091', '0092', '0102', '0103', '0105']
-
-RUNIDS = ['0105']
+CRYSTFELDIR= '/beegfs/desy/user/patricka/mx2/crystfel_calc'
 
 
+RUNID = sys.argv[1]
 
 
-for RUNID in RUNIDS:
-    x = glob.glob(f'{DATADIR}/*_{RUNID}_*')
 
-for i in x:
-    print(i)
-    
+h5files = glob.glob(f'{DATADIR}/*_{RUNID}_data*')
+
+os.mkdir(f'{CRYSTFELDIR}/{RUNID}')
+
+for h5file in h5files:
+    for frame_num in range(200):
+        print(f'{h5file} //{frame_num}')
+
+
+
+
 
 
 

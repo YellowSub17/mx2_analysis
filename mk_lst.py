@@ -20,7 +20,8 @@ RUNIDS = ['0105']
 for RUNID in RUNIDS:
     x = glob.glob(f'{DATADIR}/*_{RUNID}_*')
 
-print(x)
+for i in x:
+    print(i)
     
 
 

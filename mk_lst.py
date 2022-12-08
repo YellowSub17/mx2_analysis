@@ -20,7 +20,10 @@ RUNID = sys.argv[1]
 
 h5files = glob.glob(f'{DATADIR}/*_{RUNID}_data*')
 
-os.mkdir(f'{CRYSTFELDIR}/{RUNID}')
+print(f'##Found {len(h5files)} h5')
+
+
+
 
 for h5file in h5files:
     for frame_num in range(200):

@@ -65,7 +65,7 @@ for h5_data_file_num, h5_data_file in enumerate(h5_data_files):
 
 ####append lst to crystfel.project
 print('\nAppending lst file to crystfel.project')
-os.system(f'echo {CRYSTFELDIR}/{RUNID}/{RUNID}files.lst >> {CRYSTFELDIR}/{RUNID}/crystfel.project')
+os.system(f'cat {CRYSTFELDIR}/{RUNID}/{RUNID}files.lst >> {CRYSTFELDIR}/{RUNID}/crystfel.project')
 
 
 

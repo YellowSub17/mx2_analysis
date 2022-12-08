@@ -22,7 +22,7 @@ data = /entry/data/data
 
 
 ; Uncomment these lines if you have a separate bad pixel map (recommended!)
-mask0_file = /beegfs/desy/user/patricka/mx2/crystfel_calc/mask.h5
+mask0_file = ./mx2mask.h5
 mask0_data = /entry/data/data
 mask0_goodbits = 0
 mask0_badbits = 1
